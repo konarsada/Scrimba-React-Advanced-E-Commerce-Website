@@ -1,16 +1,16 @@
-import React, {useState, useContext} from "react"
+import React, { useState, useContext } from "react"
 
-import {Context} from "../Context"
+import { Context } from "../Context"
 import CartItem from "../components/CartItem"
 
 function Cart() {
     const [buttonText, setButtonText] = useState("Place Order")
 
-    const {cartItems, emptyCart} = useContext(Context)
-    
+    const { cartItems, emptyCart } = useContext(Context)
+
     // every product cost 5.99
     const totalCost = 5.99 * cartItems.length
-    const totalCostDisplay = totalCost.toLocaleString("en-US", {style: "currency", currency: "USD"})
+    const totalCostDisplay = totalCost.toLocaleString("en-US", { style: "currency", currency: "USD" })
 
     const cartItemElements = cartItems.map(item => (
         <CartItem key={item.id} item={item} />
@@ -21,7 +21,7 @@ function Cart() {
         setTimeout(() => {
             console.log("Order placed!")
             setButtonText("Place Order")
-            
+
             emptyCart()
         }, 3000)
     }

@@ -12,15 +12,18 @@ function CartItem({ item }) {
     const iconClassName = hovered ?
         "ri-delete-bin-fill" :
         "ri-delete-bin-line"
-
+    
     return (
-        <div className={iconClassName}>
-            <i className="ri-delete-bin-line"
+        <div className="cart-item">
+            <i 
+                className={iconClassName} 
                 onClick={() => removeFromCart(item.id)}
                 ref={ref}
             >
             </i>
+            
             <img src={item.url} alt="product" width="130px" />
+            
             <p>$5.99</p>
         </div>
     )
